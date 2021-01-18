@@ -34,7 +34,7 @@ public class SongController {
 
 	//home page 
 	@RequestMapping(value="/home")
-	public ModelAndView test(HttpServletResponse response) throws IOException{
+	public ModelAndView home(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
 	}
 	
