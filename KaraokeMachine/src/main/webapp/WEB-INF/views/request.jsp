@@ -42,23 +42,23 @@
                         <h1 class="text-uppercase text-white font-weight-bold">Request a Song</h1>
                         <hr class="divider my-4" />
                     </div>
-                    <div class="col-lg-8 align-self-baseline">
+                    <div class="align-self-baseline">
 								<form:form method= "POST" modelAttribute="song" action="requestSuccess">
 									<table> 
 										<tr>
-											<td>Artist:</td>
+											<td class="text-white">Artist:</td>
 											<td><form:input path="artist"/></td>
 										</tr>
 										<tr>
-											<td>Title:</td>
+											<td class="text-white">Title:</td>
 											<td><form:input path="title"/></td>
 										</tr>
 										<tr>
-											<td>Youtube Link:</td>
+											<td class="text-white">Youtube Link:</td>
 											<td><form:input path="youtubeLink"/></td>
 										</tr>
 										<tr>
-											<td colspan="2"> 
+											<td> 
 											    <input class="btn btn-primary btn-xl js-scroll-trigger" type = "submit" value = "Submit">
 											</td>
 										</table>
@@ -68,7 +68,7 @@
             </div>
         </header>
         <!-- Footer-->
-        <footer class="bg-light py-5">
+        <footer class="py-5">
             <div class="container"><div class="small text-center text-muted">By Almicke Navarro</div></div>
         </footer>
     </body>
