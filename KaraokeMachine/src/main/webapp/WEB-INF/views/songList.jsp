@@ -52,9 +52,9 @@
 									</tr>
 									<c:forEach var = "song" items = "${songs}">
 									<tr>
-										<td><label>$song.Title</label></td>
-										<td><label>$song.Artist</label></td>
-										<td><label>$song.YoutubeLink</label></td>
+										<td><label>${song.title}</label></td>
+										<td><label>${song.artist}</label></td>
+										<td><label>${song.youtubeLink}</label></td>
 									</tr>
 									</c:forEach>
 						    </table>
@@ -68,25 +68,4 @@
             <div class="container"><div class="small text-center text-muted">By Almicke Navarro</div></div>
         </footer>
     </body>
-<body>
-<div class="container text-center">
-	<h2>Song List</h2>
-	<div class="table-responsive">
-	<table class="table table-borderless table-dark" style="width:50%">
-			<tr>
-				<th><label>Song Title</label></th>
-				<th><label>Artist</label></th>
-				<th><label>Youtube Link</label></th>
-			</tr>
-			<c:forEach var = "song" items = "${songs}">
-			<tr>
-				<td><label>$song.Title</label></td>
-				<td><label>$song.Artist</label></td>
-				<td><label>$song.YoutubeLink</label></td>
-			</tr>
-			</c:forEach>
-    </table>
-	</div>
-</div>
-</body>
 </html>
