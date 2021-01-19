@@ -21,7 +21,7 @@
    <mvc:annotation-driven />
 
     <!-- MySQL Datasource -->
-    <bean id="dataSource" destroy-method="close" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:8889/KaraokeMachine" />
         <property name="username" value="root" />
@@ -45,6 +45,9 @@
     </tx:advice>
 
  	<!-- Application Spring Beans --> 	
+ 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
  	
 	 <bean id="songDataService" class="CST323.KaraokeMachine.data.SongDataService">
 		<property name="dataSource" ref="dataSource" />
