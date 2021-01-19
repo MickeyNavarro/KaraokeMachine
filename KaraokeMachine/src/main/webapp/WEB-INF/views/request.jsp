@@ -54,7 +54,7 @@
 											<td><form:input path="title"/></td>
 										</tr>
 										<tr>
-											<td class="text-white">Youtube Link:</td>
+											<td class="text-white">Youtube Link (Embed link preferred):</td>
 											<td><form:input path="youtubeLink"/></td>
 										</tr>
 										<tr>
