@@ -52,9 +52,9 @@
 									</tr>
 									<c:forEach var = "song" items = "${songs}">
 									<tr>
-										<td><label>${song.title}</label></td>
-										<td><label>${song.artist}</label></td>
-										<td><label>${song.youtubeLink}</label></td>
+									<td><form action = karaokeSong method = 'POST'><input type = 'hidden' name = 'songID' value = '${song.ID}'><input type = 'submit' value = '${song.title}'></form></td>
+										<td>${song.artist}</td>
+										<td>${song.youtubeLink}</td>
 									</tr>
 									</c:forEach>
 						    </table>
