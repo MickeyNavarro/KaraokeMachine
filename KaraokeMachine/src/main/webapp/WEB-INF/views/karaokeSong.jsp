@@ -36,12 +36,15 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">Now playing: ${song.Title} by ${song.Artist} }</h1>
+                        <h2 class="text-uppercase text-white">Now playing: </h2>
+                        <h1 class="text-uppercase text-white font-weight-bold">${song.title}</h1>
+                        <h2 class="text-uppercase text-white font-weight-bold">by ${song.artist}</h2>
                         <hr class="divider my-4" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p>${song.YoutubeLink}</p>
+						<iframe width="560" height="315" src="${song.youtubeLink}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    <p class="text-white">If you cannot view this video, please visit ${song.youtubeLink} to sing your song!</p>
                 </div>
             </div>
         </header>
