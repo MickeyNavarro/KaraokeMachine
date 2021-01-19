@@ -52,6 +52,13 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- Aspectj will allow this particular project to use its applicationConfiguration.xml file for its beans-->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.3</version>
+		</dependency>
+		
 		<!-- JDBC help with spring beans -->
 		<dependency>
 			<groupId>org.springframework</groupId>
