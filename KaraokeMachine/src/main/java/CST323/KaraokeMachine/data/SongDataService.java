@@ -1,7 +1,7 @@
 //Almicke Navarro 
 //CST-323
 //January 9, 2020 
-//I used the source code from the following website: https://github.com/MickeyNavarro/ArtistWebsiteV3/blob/master/src/com/data/EventDataService.java
+//I used the source code from the following websites: https://github.com/MickeyNavarro/ArtistWebsiteV3/blob/master/src/com/data/EventDataService.java, https://stackoverflow.com/questions/35302501/jdbctemplate-is-null-and-throws-null-pointer-exception
 
 //SongDataService will deal with any CRUD operations to the database 
 package CST323.KaraokeMachine.data;
@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
@@ -20,7 +21,21 @@ public class SongDataService implements SongDataInterface {
 	
 	@SuppressWarnings("unused")
 	private DataSource dataSource; 
-	private JdbcTemplate jdbcTemplateObject;
+	private JdbcTemplate jdbcTemplate;
+	
+	//set the spring bean
+	public void setDataSource(DataSource dataSource) { 
+		this.dataSource = dataSource; 
+	}
+	
+	//get and set the JDBC template object 
+	public JdbcTemplate getJdbcTemplate() {
+	    return jdbcTemplate;
+	}
+	@Autowired
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+	    this.jdbcTemplate = jdbcTemplate;
+	}
 
 	//default constructor 
 	public SongDataService() {}
@@ -34,7 +49,7 @@ public class SongDataService implements SongDataInterface {
 			System.out.println("Successful connection for SongDataService.create()!");
 			
 			//Execute SQL Insert 
-			int rows = jdbcTemplateObject.update(sql, 
+			int rows = jdbcTemplate.update(sql, 
 					s.getArtist(), s.getTitle(), s.getYoutubeLink()); 
 			
 			//Return result of Insert
@@ -61,7 +76,7 @@ public class SongDataService implements SongDataInterface {
 			System.out.println("Successful connection for SongDataService.read()!");
 
 			//Execute SQL Query and check if an Event was returned
-			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, id); 
+			SqlRowSet srs = jdbcTemplate.queryForRowSet(sql, id); 
 			if(srs.next()) { 
 				song = new Song(id,
 						srs.getString("Artist"), 
@@ -92,7 +107,7 @@ public class SongDataService implements SongDataInterface {
 			System.out.println("Successful connection for SongDataService.readAll()!");
 			
 			//Execute SQL Query and loop over result set
-			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql); 
+			SqlRowSet srs = jdbcTemplate.queryForRowSet(sql); 
 			while(srs.next()) { 
 				songs.add(new Song(srs.getInt("ID"), 
 						srs.getString("Artist"), 
