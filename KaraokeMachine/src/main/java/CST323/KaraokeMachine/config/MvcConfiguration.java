@@ -3,6 +3,7 @@ package CST323.KaraokeMachine.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan(basePackages="CST323.KaraokeMachine")
 @EnableWebMvc
+@ImportResource(value = {"classpath:/CST323/KaraokeMachine/config/applicationConfiguration.xml"})
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean
