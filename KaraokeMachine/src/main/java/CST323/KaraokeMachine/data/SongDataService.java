@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import CST323.KaraokeMachine.exception.DatabaseException;
 import CST323.KaraokeMachine.model.Song;
 
 public class SongDataService implements SongDataInterface {
@@ -59,8 +60,8 @@ public class SongDataService implements SongDataInterface {
 			//output statement for console
 			System.out.println("Failed connection for SongDataService.create()!");
 			e.printStackTrace();
+			throw new DatabaseException(e); 
 		}
-		return false; 
 	}
 
 	//read a song from the database; returns the song info
@@ -90,6 +91,7 @@ public class SongDataService implements SongDataInterface {
 			//output statement for console
 			System.out.println("Failed connection for SongDataService.read()!");
 			e.printStackTrace();
+			throw new DatabaseException(e); 
 		}
 		return song; 
 	}
@@ -121,6 +123,8 @@ public class SongDataService implements SongDataInterface {
 			//output statement for console
 			System.out.println("Failed connection for SongDataService.readAll()!");
 			e.printStackTrace();
+			throw new DatabaseException(e); 
+
 
 		}
 		return songs;
