@@ -20,13 +20,21 @@
    <context:annotation-config/>
    <mvc:annotation-driven />
 
-    <!-- MySQL Datasource -->
+	<!-- MySQL Datasource for localhost-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:8889/KaraokeMachine" />
         <property name="username" value="root" />
         <property name="password" value="root" />
     </bean>
+    
+    <!-- MySQL Datasource for Azure 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://127.0.0.1:50305/localdb" />
+        <property name="username" value="azure" />
+        <property name="password" value="6#vWHD_$" />
+    </bean> -->
    
    <!-- Setup Transaction Manager -->
     <aop:config>
