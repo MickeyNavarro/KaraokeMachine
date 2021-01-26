@@ -1,4 +1,12 @@
+/*
+ * Almicke Navarro 
+ * CST-323
+ * January 26, 2021
+ * I used source code from: https://stackoverflow.com/questions/37233069/heroku-unable-to-find-xml-config-file
+ */
 package CST323.KaraokeMachine.config;
+
+import java.io.InputStream;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,8 +21,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan(basePackages="CST323.KaraokeMachine")
 @EnableWebMvc
-@ImportResource(value = {"classpath:/CST323/KaraokeMachine/config/applicationConfiguration.xml"})
+//@ImportResource(value = {"classpath:/CST323/KaraokeMachine/config/applicationConfiguration.xml"})
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
+	
+	ClassLoader cl = this.getClass().getClassLoader();
+	InputStream inputStream = cl.getResourceAsStream("CST323/KaraokeMachine/config/applicationConfiguration.xml");
 
 	@Bean
 	public ViewResolver getViewResolver(){
