@@ -82,7 +82,7 @@
 		<property name="songService" ref="songService"/>
 	</bean>
 
-    <mvc:resources mapping="/WEB-INF/resources/**" location="/WEB-INF/resources/"/>
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
  	<mvc:annotation-driven/>
 </beans>
