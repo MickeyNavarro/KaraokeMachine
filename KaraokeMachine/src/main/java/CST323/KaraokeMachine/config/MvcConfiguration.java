@@ -24,8 +24,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 //@ImportResource(value = {"classpath:/CST323/KaraokeMachine/config/applicationConfiguration.xml"})
 public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	
-	ClassLoader cl = this.getClass().getClassLoader();
-	InputStream inputStream = cl.getResourceAsStream("CST323/KaraokeMachine/config/applicationConfiguration.xml");
+	//ClassLoader cl = this.getClass().getClassLoader();
+	//InputStream inputStream = cl.getResourceAsStream("CST323/KaraokeMachine/config/applicationConfiguration.xml");
 
 	@Bean
 	public ViewResolver getViewResolver(){
