@@ -44,7 +44,7 @@ public class SongDataService implements SongDataInterface {
 	//create a song to the database; returns if successful or not
 	@Override
 	public boolean create(Song s) {
-		String sql = "INSERT INTO vzrpf9eq4ondk8oc.Song (Artist, Title, YoutubeLink) VALUES (?,?,?)";
+		String sql = "INSERT INTO KaraokeMachine.Song (Artist, Title, YoutubeLink) VALUES (?,?,?)";
 		try { 
 			//output statement for console
 			System.out.println("Successful connection for SongDataService.create()!");
@@ -67,7 +67,7 @@ public class SongDataService implements SongDataInterface {
 	//read a song from the database; returns the song info
 	@Override
 	public Song read(int id) {
-		String sql = "SELECT * FROM vzrpf9eq4ondk8oc.Song WHERE ID = ?"; 
+		String sql = "SELECT * FROM KaraokeMachine.Song WHERE ID = ?"; 
 
 		//create a song object to hold the song found from the database
 		Song song = null; 
@@ -99,7 +99,7 @@ public class SongDataService implements SongDataInterface {
 	//reads all the songs from the database; returns a list of songs
 	@Override
 	public List<Song> readAll() {
-		String sql = "SELECT * FROM vzrpf9eq4ondk8oc.Song"; 
+		String sql = "SELECT * FROM KaraokeMachine.Song"; 
 		
 		//create a lits of songs so it will be returned later to the JSP page 
 		List<Song> songs = new ArrayList<Song>(); 
