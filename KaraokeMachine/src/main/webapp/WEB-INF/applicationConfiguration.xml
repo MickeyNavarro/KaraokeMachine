@@ -52,6 +52,12 @@
         <property name="password" value="root" />
     </bean>
    
+      <!-- View Resolver -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value= "/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+   
    <!-- Setup Transaction Manager -->
     <aop:config>
         <aop:pointcut id="allServiceMethods" expression="execution(* src.main.java.CST323.KaraokeMachine.business.*Interface.*(..))" />
@@ -83,7 +89,7 @@
 		<property name="songService" ref="songService"/>
 	</bean>
 
-    <mvc:resources mapping="/resources/**" location="/webapp/resources/"/>
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
  	<mvc:annotation-driven/>
 </beans>

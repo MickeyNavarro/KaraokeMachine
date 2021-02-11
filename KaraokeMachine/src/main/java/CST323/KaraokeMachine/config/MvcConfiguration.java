@@ -3,6 +3,8 @@
  * CST-323
  * January 26, 2021
  * I used source code from: https://stackoverflow.com/questions/37233069/heroku-unable-to-find-xml-config-file
+ * 
+ * THIS CLASS IS NOT USED IN THE GOOGLE & HEROKU VERSIONS 
  */
 package CST323.KaraokeMachine.config;
 
