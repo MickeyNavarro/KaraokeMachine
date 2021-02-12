@@ -47,7 +47,7 @@
     <!-- MySQL Datasource for Google Cloud  -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://google/KaraokeMachine?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=phonic-sunbeam-304314:us-west4:mydatabaseinstance" />
+        <property name="url" value="jdbc:mysql://google/KaraokeMachine?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=phonic-sunbeam-304314:us-west4:mydbinstance" />
         <property name="username" value="root" />
         <property name="password" value="root" />
     </bean>
