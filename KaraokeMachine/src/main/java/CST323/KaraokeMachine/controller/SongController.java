@@ -11,6 +11,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +26,10 @@ import CST323.KaraokeMachine.model.Song;
 
 @Controller
 public class SongController {
+	
+	//logger intialization
+	Logger logger = LoggerFactory.getLogger(SongController.class); 
+	
 	//spring bean declaration 
 	SongBusinessInterface service; 
 	
@@ -47,6 +53,7 @@ public class SongController {
 	//requested song success page 
 	@RequestMapping(value="/requestSuccess", method = RequestMethod.POST) 
 	public ModelAndView displayRequestSuccessPage(@ModelAttribute("song") Song song, BindingResult result) {
+		
 		//check if the form has any errors 
 		if(result.hasErrors()) { 
 			//return to previous form with errors outputted
@@ -63,6 +70,8 @@ public class SongController {
 		}
 		//catch all exceptions 
 		catch (Exception e) {
+			
+			logger.error("------------------> Exception caught in the SongController.displayRequestSuccessPage() with message: " + e.getMessage());
 			
 			//create a modelandview 
 			ModelAndView errorMV = new ModelAndView("error"); 
@@ -90,6 +99,9 @@ public class SongController {
 		}
 		//catch all exceptions 
 		catch (Exception e) {
+			
+			logger.error("------------------> Exception caught in the SongController.displaySongListPage() with message: " + e.getMessage());
+
 			//create a modelandview 
 			ModelAndView errorMV = new ModelAndView("error"); 
 			//create a error message 
@@ -116,6 +128,9 @@ public class SongController {
 			}
 			//catch all exceptions 
 			catch (Exception e) {
+				
+				logger.error("------------------> Exception caught in the SongController.displayKaraokeSongPage() with message: " + e.getMessage());
+
 				//create a modelandview 
 				ModelAndView errorMV = new ModelAndView("error"); 
 

@@ -20,13 +20,13 @@
    <context:annotation-config/>
    <mvc:annotation-driven />
 
-	<!-- MySQL Datasource for localhost  
+	<!-- MySQL Datasource for localhost --> 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:8889/KaraokeMachine" />
         <property name="username" value="root" />
         <property name="password" value="root" />
-    </bean> -->
+    </bean> 
     
     <!-- MySQL Datasource for Azure 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -44,19 +44,52 @@
         <property name="password" value="qhqmiu38ao3fy27c" />
     </bean> -->
     
-    <!-- MySQL Datasource for Google Cloud  -->
+    <!-- MySQL Datasource for Google Cloud  
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://google/KaraokeMachine?socketFactory=com.google.cloud.sql.mysql.SocketFactory&amp;cloudSqlInstance=phonic-sunbeam-304314:us-west4:mydbinstance" />
         <property name="username" value="root" />
         <property name="password" value="root" />
-    </bean>
+    </bean> -->
    
       <!-- View Resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value= "/WEB-INF/views/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	
+	<!-- Configuration Parameters -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:config/dev/config.properties"/>
+    </bean>    
+   
+   <!-- Intercepter -->
+    <aop:aspectj-autoproxy/>
+    <bean id="tracer" class="CST323.KaraokeMachine.utility.Tracer"> </bean>
+    <aop:config>
+        <aop:pointcut id="businessServices" expression="execution(* CST323.KaraokeMachine.business.*Interface.*(..))"/>
+        <aop:aspect id="aroundBusiness" ref="tracer">
+            <aop:around pointcut-ref="businessServices" method="doBasicProfiling"/>
+        </aop:aspect>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="dataServices" expression="execution(* CST323.KaraokeMachine.data.*Interface.*(..))"/>
+        <aop:aspect id="aroundData" ref="tracer">
+            <aop:around pointcut-ref="dataServices" method="doBasicProfiling"/>
+        </aop:aspect>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="controllers" expression="within(CST323.KaraokeMachine.controller..*)"/>
+        <aop:aspect id="aroundController" ref="tracer">
+            <aop:around pointcut-ref="controllers" method="doBasicProfiling"/>
+        </aop:aspect>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="examplePointcut" expression="within(CST323.KaraokeMachine.controller..*)"/>
+        <aop:aspect id="withinExample" ref="tracer">
+            <aop:before pointcut-ref="examplePointcut" method="inPresentationLayer"/>
+        </aop:aspect>
+    </aop:config>
    
    <!-- Setup Transaction Manager -->
     <aop:config>
