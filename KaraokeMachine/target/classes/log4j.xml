@@ -18,11 +18,13 @@
 
  	<logger name="KaraokeMachineTracer" additivity="false">
 		<level value="INFO" />
+		<appender-ref ref = "STDOUT"/>
  		<appender-ref ref="console" />
 	    <appender-ref ref="file" />
 	</logger>
 	<root>
 		<level value="INFO" />
+		<appender-ref ref = "STDOUT"/>
 		<appender-ref ref="console" />
 	    <appender-ref ref="file" />
 	</root>
