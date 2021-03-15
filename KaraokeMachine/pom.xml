@@ -206,11 +206,11 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>com.github.jsimone</groupId>
-									<artifactId>webapp-runner</artifactId>
-									<version>8.5.31.0</version>
-									<destFileName>webapp-runner.jar</destFileName>
-								</artifactItem>
+	                                <groupId>CST323.KaraokeMachine</groupId>
+	                                <artifactId>webapp-runner</artifactId>
+	                                <version>9.0.41.0</version>
+	                                <destFileName>webapp-runner.jar</destFileName>
+                            	</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
