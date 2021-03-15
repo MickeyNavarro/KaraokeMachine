@@ -217,5 +217,28 @@
 				</executions>
 			</plugin>
 		</plugins>
+    	<resources>
+             <resource>
+               <directory>src/config/dev</directory>
+               <includes>
+                 <include>config.properties</include>
+               </includes>
+               <targetPath>config</targetPath>
+             </resource>
+             <resource>
+               <directory>src/config/dev</directory>
+               <includes>
+                 <include>web.xml</include>
+               </includes>
+               <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+             </resource>
+            <resource>
+               <directory>src/config/dev</directory>
+               <includes>
+                 <include>log4j.xml</include>
+               </includes>
+               <targetPath>../${warname}/WEB-INF/classes</targetPath>
+             </resource>
+     </resources>
 	</build>
 </project>
