@@ -69,7 +69,7 @@ public class SongController {
 		}
 		//catch all exceptions 
 		catch (Exception e) {
-			logger.error("------------------> Exception caught in the SongController.displayRequestSuccessPage() with message: " + e.getMessage());
+			logger.info("------------------> Exception caught in the SongController.displayRequestSuccessPage() with message: " + e.getMessage());
 
 			
 			//create a modelandview 
@@ -98,7 +98,7 @@ public class SongController {
 		}
 		//catch all exceptions 
 		catch (Exception e) {
-			logger.error("------------------> Exception caught in the SongController.displaySongListPage() with message: " + e.getMessage());
+			logger.info("------------------> Exception caught in the SongController.displaySongListPage() with message: " + e.getMessage());
 
 			
 			//create a modelandview 
@@ -127,7 +127,7 @@ public class SongController {
 			}
 			//catch all exceptions 
 			catch (Exception e) {
-				logger.error("------------------> Exception caught in the SongController.displayKaraokeSongPage() with message: " + e.getMessage());
+				logger.info("------------------> Exception caught in the SongController.displayKaraokeSongPage() with message: " + e.getMessage());
 				
 				//create a modelandview 
 				ModelAndView errorMV = new ModelAndView("error"); 
