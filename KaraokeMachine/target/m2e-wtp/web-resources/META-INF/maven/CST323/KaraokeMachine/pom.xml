@@ -134,21 +134,6 @@
 	        <version>1.7.12</version>
 	    </dependency>
 	    <dependency>
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j-api</artifactId>
-		    <version>2.7</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j-core</artifactId>
-		    <version>2.7</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.logging.log4j</groupId>
-		    <artifactId>log4j-slf4j-impl</artifactId>
-		    <version>2.7</version>
-		</dependency>
-	    <dependency>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-javadoc-plugin</artifactId>
 	        <version>2.10.3</version>
@@ -232,28 +217,5 @@
 				</executions>
 			</plugin>
 		</plugins>
-    	<resources>
-             <resource>
-               <directory>src/config/dev</directory>
-               <includes>
-                 <include>config.properties</include>
-               </includes>
-               <targetPath>config</targetPath>
-             </resource>
-             <resource>
-               <directory>src/config/dev</directory>
-               <includes>
-                 <include>web.xml</include>
-               </includes>
-               <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
-             </resource>
-            <resource>
-               <directory>src/config/dev</directory>
-               <includes>
-                 <include>log4j.xml</include>
-               </includes>
-               <targetPath>../${warname}/WEB-INF/classes</targetPath>
-             </resource>
-     </resources>
 	</build>
 </project>
