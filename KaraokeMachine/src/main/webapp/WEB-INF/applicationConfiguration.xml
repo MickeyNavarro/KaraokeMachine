@@ -51,10 +51,10 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-   <!-- Configuration Parameters -->
+    <!-- Configuration Parameters -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:config/dev/config.properties"/>
-    </bean>    
+        <property name="location" value="classpath:config.properties"/>
+    </bean>
    
    <!-- Intercepter -->
     <aop:aspectj-autoproxy/>
