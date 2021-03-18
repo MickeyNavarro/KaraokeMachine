@@ -233,6 +233,21 @@
 				</includes>
 				<targetPath>${project.basedir}/target/classes</targetPath>
 			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>log4j.xml</include>
+				</includes>
+				<targetPath>${project.basedir}/target/classes</targetPath>
+			</resource>
+			<resource>
+                 <directory>src/main/webapp</directory>
+                <targetPath>${project.basedir}/target/${warname}</targetPath>
+                 <includes>
+                    <include>**/WEB-INF/applicationConfiguration.xml</include>
+                    <include>**/WEB-INF/web.xml</include>
+                  </includes>
+            </resource>
 		</resources>
 	</build>
 </project>
