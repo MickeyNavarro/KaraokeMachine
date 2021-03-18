@@ -220,9 +220,16 @@
 		</plugins>
 		<resources>
 			<resource>
-				<directory>src</directory>
+				<directory>src/main/java</directory>
 				<includes>
 					<include>log4j.xml</include>
+				</includes>
+				<targetPath>${project.basedir}/target/classes</targetPath>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>config.properties</include>
 				</includes>
 				<targetPath>${project.basedir}/target/classes</targetPath>
 			</resource>
